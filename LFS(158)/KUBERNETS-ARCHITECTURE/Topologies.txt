@@ -1,0 +1,11 @@
+Topologies
+
+A.
+Stacked etcd (Coupled or Integrated Topology) What is it?: 
+etcd runs on the same physical or virtual node alongside the other Control Plane components (apiserver, scheduler, etc.). Key Difference: It directly shares hardware resources (CPU, memory) with the rest of the Control Plane. Resilience: If you configure Control Plane nodes for High Availability (HA), etcd replication occurs automatically between them (e.g., when using kubeadm by default). Advantage / Disadvantage: It is much faster and easier to deploy, but a total node failure compromises both the API processor and the database simultaneously.
+
+B.
+External etcd (External Topology) What is it?: etcd runs in complete isolation on dedicated hosts, separate from the Control Plane nodes. Key Difference: It completely decouples data storage from API processing. The kube-apiserver communicates with the etcd cluster over the network. Resilience: It requires dedicated etcd nodes to be replicated and configured for HA independently of the Control Plane. Advantage / Disadvantage: It offers maximum security and fault tolerance for production environments (if a Control Plane node fails, the data remains intact). However, it introduces the need for more hardware, network complexity, and higher operating costs.
+
+C.
+Single-Node etcd (Single Instance / Development) What is it?: Although it technically uses the logic of the stacked topology, it is considered a separate scenario because it lacks High Availability. It is the standard environment for learning tools like Minikube or initial development clusters. Key Difference: There is only a single etcd instance with no replicas. Resilience: None. If the instance fails, the cluster is lost. Therefore, it relies critically on using etcdctl to perform manual backups (snapshots).

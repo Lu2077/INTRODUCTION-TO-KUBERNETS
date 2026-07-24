@@ -1,0 +1,10 @@
+kubectl
+kubectl allows us to manage local Kubernetes clusters like the Minikube cluster, or remote clusters deployed in the cloud. It is generally installed before installing and starting Minikube, but it can also be installed after the cluster bootstrapping step.
+
+A Minikube installation has its own kubectl CLI installed and ready to use. However, it is somewhat inconvenient to use as the kubectl command becomes a subcommand of the minikube command. Users would be required to type longer commands, such as minikube kubectl -- <subcommand> <object-type> <object-name> -o --option, instead of just kubectl <subcommand> <object-type> <object-name> -o --option. While a simple solution would be to set up an alias, the recommendation is to run the kubectl CLI tool as a standalone installation.
+
+Once separately installed, kubectl receives its configuration automatically for Minikube Kubernetes cluster access. However, in different Kubernetes cluster setups, we may need to manually configure the cluster access points and certificates required by kubectl to securely access the cluster.
+
+There are different methods that can be used to install kubectl listed in the Kubernetes documentation. For best results, it is recommended to keep kubectl within one minor version of the desired Kubernetes release. Next, we will describe the kubectl CLI installation process.
+
+Additional details about the kubectl command line client can be found in the kubectl book, the Kubernetes official documentation, or its GitHub repository.

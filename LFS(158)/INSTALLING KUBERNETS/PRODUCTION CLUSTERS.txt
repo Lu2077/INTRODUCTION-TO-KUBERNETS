@@ -1,0 +1,42 @@
+Production Clusters from Certified Solutions Providers
+
+The growing popularity of Kubernetes accelerated its adoption by many cloud services providers together with hosted platforms of certified Kubernetes distributions. There are well over 200 managed certified Kubernetes services providers today, as many more organizations became Kubernetes partners, joining the list of initial providers of hosted Kubernetes solutions:
+
+Hosted Solutions
+Hosted Solutions providers fully manage the provided software stack, while the user pays hosting and management charges. Popular vendors providing hosted solutions for Kubernetes are (listed in alphabetical order):
+
+Alibaba Cloud Container Service for Kubernetes (ACK)
+Amazon Elastic Kubernetes Service (EKS)
+Azure Kubernetes Service (AKS)
+DigitalOcean Kubernetes (DOKS)
+Google Kubernetes Engine (GKE)
+IBM Cloud Kubernetes Service
+Oracle Container Engine for Kubernetes (OKE)
+Red Hat OpenShift
+VMware Tanzu Kubernetes Grid
+Partners
+Additional Partners providing managed Kubernetes services and platforms (listed in alphabetical order):
+
+Aqua Security
+Canonical
+D2IQ
+Dell Technologies Consulting
+Deloitte
+Fujitsu
+GitLab
+HPE
+Kubermatic
+Kublr
+Mirantis
+Platform9
+SAP
+SUSE
+Sysdig
+Weaveworks
+Turnkey Cloud Solutions
+Turnkey Cloud Solutions install production ready Kubernetes clusters on cloud infrastructure:
+
+Linode Kubernetes Engine
+Nirmata Managed Kubernetes
+Nutanix Karbon
+Vultr Kubernetes Engine

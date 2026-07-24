@@ -1,0 +1,35 @@
+Installing kubectl on macOS
+There are two methods to install kubectl on macOS - manually and using the Homebrew package manager. Next, we present both installation methods extracted from the official installation guide.
+
+To manually install kubectl, download the latest stable binary, make it executable and move it to the PATH with the following commands:
+
+$ curl -LO "htt‌ps://dl.k8s.io/release/$(curl -L -s \
+https://dl.k8s.io/release/stab...)/bin/darwin/amd64/kubectl"
+
+$ chmod +x ./kubectl
+
+$ sudo mv ./kubectl /usr/local/bin/kubectl
+
+$ sudo chown root: /usr/local/bin/kubectl
+
+Where https://dl.k8s.io/release/stable.txt aims to display the latest Kubernetes stable release version.
+
+NOTE: To download and setup a specific version of kubectl (such as v1.28.3) to be aligned with the Kubernetes version of the Minikube cluster, issue the following command instead:
+
+$ curl -LO htt‌ps://dl.k8s.io/release/v1.28.3/bin/darwin/amd64/kubectl
+
+NOTE: The commands above download the kubectl package for systems equipped with Intel processors. For newer macOS systems equipped with Apple Silicon download the required package by replacing /amd64/ with /arm64/ in the download commands above.
+
+To install kubectl with Homebrew package manager, issue the following command:
+
+$ brew install kubectl
+
+or
+
+$ brew install kubernetes-cli
+
+The installed version can be verified with:
+
+$ kubectl version --client
+
+A typical helpful post-installation configuration is to enable shell autocompletion for kubectl on your favorite shell (bash, fish, zsh).

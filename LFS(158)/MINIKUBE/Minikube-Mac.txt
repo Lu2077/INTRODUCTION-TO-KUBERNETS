@@ -1,0 +1,39 @@
+Install Minikube. We can download and install in a terminal the latest release or a specific release from the Minikube release page by running the following commands. While these installation commands reflect the official installation guide at the time of this course content update, they may change in the near future as part of the continuous growth of Kubernetes. It is strongly recommended to inspect the official installation guide for macOS > x86-64 > Stable and macOS > ARM64 > Stable respectively when attempting the installation, to ensure the most up-to-date package repositories are used in the process for the target Mac architecture. In addition, inspect the Known Issues section on the Minikube Docker driver page for usage tips and recommendations in case of unexpected behaviors of the Docker installation. Below we are presenting the Binary download option, a distribution neutral installation approach. For the Intel (x86-64) architecture run the following commands:
+
+$ curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-darwin-amd64
+
+$ sudo install minikube-darwin-amd64 /usr/local/bin/minikube
+
+For the ARM64 architecture run the following commands:
+
+$ curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-darwin-arm64
+
+$ sudo install minikube-darwin-arm64 /usr/local/bin/minikube
+
+NOTE: Replacing /latest/ with a particular version, such as /v1.31.2/ will download that specified version.
+
+Start Minikube. We can start Minikube with the minikube start command, which bootstraps a single-node cluster with the latest supported stable Kubernetes version release. For a specific Kubernetes version the --kubernetes-version option can be used as such minikube start --kubernetes-version=v1.27.1 (where latest is default and acceptable version value, and stable is also acceptable). In case there are other virtualization driver candidates for Minikube on the workstation, it is good practice to supply the desired driver with the --driver=docker option. More advanced start options will be explored later in this chapter:
+
+$ minikube start --driver=docker
+
+😄 minikube v1.32.0 on Darwin 12.3
+✨ Using the docker driver based on user configuration
+👍 Starting control plane node minikube in cluster minikube
+🚜 Pulling base image ...
+   > gcr.io/k8s-minikube/kicbase...: 1.62 KiB / 453.90 MiB [>_] 0.00% ? p/s ?
+💾 Downloading Kubernetes v1.28.3 preload ...
+   > gcr.io/k8s-minikube/kicbase...: 453.90 MiB / 453.90 MiB 100.00% 7.55 Mi
+   > preloaded-images-k8s-v18-v1...: 372.28 MiB / 372.28 MiB 100.00% 5.82 Mi
+🔥 Creating docker container (CPUs=2, Memory=8000MB) ...
+🐳 Preparing Kubernetes v1.28.3 on Docker 24.0.7 ...
+   ▪ Generating certificates and keys ...
+   ▪ Booting up control plane ...
+   ▪ Configuring RBAC rules ...
+🔗 Configuring bridge CNI (Container Networking Interface) ...
+🔎 Verifying Kubernetes components...
+   ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+🌟 Enabled addons: storage-provisioner, default-storageclass
+💡 kubectl not found. If you need it, try: 'minikube kubectl -- get pods -A'
+🏄 Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+
+

@@ -1,0 +1,16 @@
+Installing Local Learning Clusters
+There are a variety of installation tools allowing us to deploy single- or multi-node Kubernetes clusters on our workstations, for learning and development purposes. While not an exhaustive list, below we enumerate a few popular ones:
+
+Minikube
+Single- and multi-node local Kubernetes cluster, recommended for a learning environment deployed on a single host.
+Kind
+Multi-node Kubernetes cluster deployed in Docker containers acting as Kubernetes nodes, recommended for a learning environment.
+Docker Desktop
+Including a local Kubernetes cluster for Docker users.
+Podman Desktop
+Including Kubernetes integration for Podman users.
+MicroK8s
+Local and cloud Kubernetes cluster for developers and production, from Canonical.
+K3S
+Lightweight Kubernetes cluster for local, cloud, edge, IoT deployments, originally from Rancher, currently a CNCF project.
+Minikube is an easy and flexible method to create a local Kubernetes setup. We will be using it extensively in this course to manage certain aspects of a Kubernetes cluster, while taking advantage of several automated features designed to simplify the user interaction with the Kubernetes environment and the containerized applications deployed to the cluster.

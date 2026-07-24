@@ -1,0 +1,22 @@
+Navigating the Learning Experience
+Close Who is the course for?
+This course is for teams considering or beginning to use Kubernetes for container orchestration who need guidelines on how to start transforming their organization with Kubernetes and cloud native patterns. Some knowledge of Linux system administration is helpful but not required.
+
+Close What prerequisites should you have?
+Basic knowledge of Linux Command Line Interface (CLI) and container technology like Docker and rkt is required.
+
+Close What the course prepares you for?
+Upon completion, you will have a solid understanding of the origin, architecture and building blocks for Kubernetes, and will be able to begin testing the new cloud native pattern to begin the cloud native journey.
+
+Close Formatting used in the course means something!
+In order to make it easier to distinguish the various types of content in the course, we use the color coding and formats below:
+
+Black: File content; Commands within the paragraph
+
+Dark blue: Text typed at the command line
+
+Green: Output
+
+Brown: File/Directory names; Paths
+
+Light blue and underlined: Hyperlink

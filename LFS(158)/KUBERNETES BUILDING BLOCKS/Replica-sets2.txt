@@ -1,0 +1,24 @@
+ReplicaSets (2)
+Let's continue with the same ReplicaSet example and assume that one of the Pods is forced to unexpectedly terminate (due to insufficient resources, timeout, its hosting node has crashed, etc.), causing the current state to no longer match the desired state.
+
+ 
+
+ReplicaSet (Current State and Desired State Are Different)
+
+ReplicaSet (Current State and Desired State Are Different)
+
+ 
+
+The ReplicaSet detects that the current state is no longer matching the desired state and triggers a request for an additional Pod to be created, thus ensuring that the current state matches the desired state.
+
+ 
+
+ReplicaSet (Creating a Pod to Match Current State with Desired State)
+
+ReplicaSet (Creating a Pod to Match Current State with Desired State)
+
+ 
+
+ReplicaSets can be used independently as Pod controllers but they only offer a limited set of features. A set of complementary features are provided by Deployments, the recommended controllers for the orchestration of Pods. Deployments manage the creation, deletion, and updates of Pods. A Deployment automatically creates a ReplicaSet, which then creates a Pod. There is no need to manage ReplicaSets and Pods separately, the Deployment will manage them on our behalf.
+
+We will take a closer look at Deployments next.

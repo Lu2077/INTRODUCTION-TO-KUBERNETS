@@ -1,0 +1,41 @@
+Deployments (2)
+A rolling update is triggered when we update specific properties of the Pod Template for a deployment. While planned changes such as updating the container image, container port, volumes, and mounts would trigger a new Revision, other operations that are dynamic in nature, like scaling or labeling the deployment, do not trigger a rolling update, thus do not change the Revision number.
+
+Once the rolling update has completed, the Deployment will show both ReplicaSets A and B, where A is scaled to 0 (zero) Pods, and B is scaled to 3 Pods. This is how the Deployment records its prior state configuration settings, as Revisions. 
+
+ 
+
+Deployment (ReplicaSet B Created)
+
+Deployment (ReplicaSet B Created)
+
+ 
+
+Once ReplicaSet B and its 3 Pods versioned 1.21.5 are ready, the Deployment starts actively managing them. However, the Deployment keeps its prior configuration states saved as Revisions which play a key factor in the rollback capability of the Deployment - returning to a prior known configuration state. In our example, if the performance of the new nginx:1.21.5 is not satisfactory, the Deployment can be rolled back to a prior Revision, in this case from Revision 2 back to Revision 1 running nginx:1.20.2 once again.
+
+ 
+
+Deployment Points to ReplicaSet B
+
+Deployment Points to ReplicaSet B
+
+ 
+
+Before advancing to more complex topics, become familiar with Deployment operations with additional commands such as:
+
+$ kubectl apply -f nginx-deploy.yaml --record
+$ kubectl get deployments
+$ kubectl get deploy -o wide
+$ kubectl scale deploy nginx-deployment --replicas=4
+$ kubectl get deploy nginx-deployment -o yaml
+$ kubectl get deploy nginx-deployment -o json
+$ kubectl describe deploy nginx-deployment
+$ kubectl rollout status deploy nginx-deployment
+$ kubectl rollout history deploy nginx-deployment
+$ kubectl rollout history deploy nginx-deployment --revision=1
+$ kubectl set image deploy nginx-deployment nginx=nginx:1.21.5 --record
+$ kubectl rollout history deploy nginx-deployment --revision=2
+$ kubectl rollout undo deploy nginx-deployment --to-revision=1
+$ kubectl get all -l app=nginx -o wide
+$ kubectl delete deploy nginx-deployment
+$ kubectl get deploy,rs,po -l app=nginx

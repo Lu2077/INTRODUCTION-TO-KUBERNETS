@@ -1,0 +1,22 @@
+Installing kubectl on Windows
+To install kubectl, we can download the binary directly or use curl from the CLI. Once downloaded the binary needs to be added to the PATH.
+
+Direct download link for latest (at the time of this update) v1.29.3 binary: https://dl.k8s.io/release/v1.29.3/bin/windows/amd64/kubectl.exe. Other versions can be downloaded simply by replacing /v1.29.3/ with the desired version, especially if we intend to be aligned with the Kubernetes version of the Minikube cluster:
+
+https://dl.k8s.io/release/v1.28.3/bin/windows/amd64/kubectl.exe
+
+NOTE: Obtain the latest kubectl stable release version number from the link below, and if needed, edit the download link for the desired binary version from above: https://dl.k8s.io/release/stable.txt.
+
+Use the curl command (if installed) from the CLI:
+
+curl -LO "htt‌ps://dl.k8s.io/release/v1.28.3/bin/windows/amd64/kubectl.exe"
+
+Once downloaded, append the kubectl binary folder to the PATH.
+
+NOTE: Docker Desktop for Windows adds its own version of kubectl to PATH. If you have installed Docker Desktop before, you may need to place your PATH entry before the one added by the Docker Desktop installer or remove the Docker Desktop's kubectl.
+
+The installed version can be verified with:
+
+$ kubectl version --client
+
+A typical helpful post-installation configuration is to enable shell autocompletion for kubectl for PowerShell.

@@ -1,0 +1,19 @@
+Control Plane Node Components
+
+A control plane node runs the following essential control plane components and agents: API server, scheduler, controller managers, and key-value data store.
+
+In addition, the control plane node runs: container runtime, node agent (kubelet), proxy (kube-proxy), optional add-ons for observability, such as dashboard, cluster-level monitoring, and logging.
+
+--------------------------------------------------------
+
+1.
+API Server (kube-apiserver) Central Point: Coordinates all cluster administrative tasks. REST Interceptor: Receives, validates, and processes all calls from users and external agents. Sole Data Access: The only component that reads from and writes directly to the state database (etcd). Intermediary: Serves as the exclusive interface for any other component needing to query the cluster state. Scalable: Can scale horizontally and act as a proxy for custom secondary API servers.
+
+2.
+Scheduler (kube-scheduler) Workload Allocator: Its sole function is to assign new Pods to the most suitable nodes (typically Worker Nodes). Decision Making: Evaluates Pod requirements against node resource availability. Filtering and Scoring: Applies filtering algorithms (predicates) to rule out nodes and then scores (priorities) eligible nodes to select the best one. Complex Criteria: Considers hardware constraints (e.g., disk==ssd), affinity, anti-affinity, taints, tolerations, and Quality of Service (QoS) policies. Customizable: Allows the use of profiles and custom policies, or even the execution of secondary schedulers in parallel.
+
+3.
+Controller Managers / Control Loops: Continuous processes (watch-loops) that compare the cluster's desired state with its current state. Corrective Action: If a discrepancy is detected, they automatically execute changes until the current state matches the desired state. kube-controller-manager: Manages internal core controllers (handling failed node replacement, Pod counting, and the creation of endpoints and tokens). cloud-controller-manager: Dedicated to interacting with cloud provider APIs (managing cloud storage, load balancers, and routing).
+
+4.
+Key-Value Data Store (etcd) Strong Consistency: A distributed key-value database that persistently stores the entire state of the Kubernetes cluster. Append-only Writes: New data is only added to the end of the log; existing information is never directly overwritten or replaced. Compaction: Periodically deletes and prunes obsolete data to keep the database size manageable. Isolation: Responds only to requests from the kube-apiserver. etcdctl Tool: Enables backups (snapshot save) and restores, which are vital for single-instance development environments.

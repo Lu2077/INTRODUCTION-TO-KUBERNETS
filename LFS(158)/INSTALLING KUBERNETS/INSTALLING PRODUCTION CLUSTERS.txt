@@ -1,0 +1,10 @@
+Installing Production Clusters with Deployment Tools
+When it comes to production ready solutions, there are several recommended tools for Kubernetes cluster bootstrapping and a few that are also capable of provisioning the necessary hosts on the underlying infrastructure.
+
+Let's take a look at the most popular installation tools available.
+
+Installation Tools
+kubeadm LogoExpand kubeadm
+kubespray LogoExpand kubespray
+kops LogoExpand kops
+In addition, for a manual installation approach, the Kubernetes The Hard Way GitHub project by Kelsey Hightower is an extremely helpful installation guide and resource. The project aims to teach all the detailed steps involved in the bootstrapping of a Kubernetes cluster, steps that are otherwise automated by various tools mentioned in this chapter and obscured from the end user.

@@ -1,0 +1,32 @@
+Kubernetes Architecture
+At a very high level, Kubernetes is a cluster of compute systems categorized by their distinct roles:
+
+One or more control plane nodes
+One or more worker nodes (optional, but recommended).
+
+----------------------------------------------------------
+
+General Overview: The Control Plane Node is the "brain" of Kubernetes.
+Its primary function is to manage the state of the entire cluster through various components (agents).
+Users interact with it via the CLI (kubectl), web dashboards, or the API. To prevent service outages and business losses, it is configured for High Availability (HA) by duplicating this node. Additionally, it stores all cluster configuration in a distributed key-value database, which can be installed locally (stacked) or externally for enhanced security.
+
+Key Points:
+
+The Cluster Brain:
+Hosts the components responsible for controlling and maintaining the operational state of Kubernetes.
+
+Communication Channels:
+Users send requests to the Control Plane via three methods: CLI (command line), Web UI (Dashboard), or directly through the API.
+
+High Availability (HA): Node replicas are used to ensure fault tolerance. Only one node actively manages the cluster at a time, but all components remain synchronized.
+
+State Storage: Configuration data is stored in a distributed key-value database. It does not store customer application data.
+Stacked Topology: The key-value database runs on the same node as the Control Plane. Its resilience depends on the node replicas themselves.
+
+External Topology: The database runs on a separate, dedicated host. This reduces the risk of data loss if the Control Plane fails but entails higher hardware and operational costs, as it requires its own HA replication system.
+
+-------------------------------------------------------------------------
+
+
+
+

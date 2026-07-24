@@ -1,0 +1,21 @@
+Requirements
+Close VT-x/AMD-v virtualization
+VT-x/AMD-v virtualization may need to be enabled on the local workstation for certain hypervisors.
+
+Close kubectl
+kubectl command line client (CLI) is a binary used to access and manage any Kubernetes cluster. It is installed through Minikube and accessed through the minikube kubectl command, or it can be installed separately and run as a standalone tool. We will explore kubectl installation and usage in future chapters.
+
+Close Type-2 hypervisor or container runtime
+Without a specified driver, Minikube will try to find an installed hypervisor or a runtime, in the following order of preference (on a Linux host): docker, kvm2, podman, vmware, and virtualbox. If multiple isolation software installations are found, such as docker and virtualbox, Minikube will pick docker over virtualbox if no desired driver is specified by the user. Hypervisors and Container Runtimes supported by various native workstation OSes:
+
+On Linux VirtualBox, KVM2, and QEMU hypervisors, or Docker and Podman runtimes.
+On macOS VirtualBox, HyperKit, VMware Fusion, Parallels, and QEMU hypervisors, or Docker and Podman runtimes.
+On Windows VirtualBox, Hyper-V, VMware Workstation, and QEMU hypervisors, or Docker and Podman runtimes.
+NOTE: Minikube supports a --driver=none (on Linux) option that runs the Kubernetes components bare-metal, directly on the host OS and not inside a VM. With this option a Docker installation is required and a Linux OS on the local workstation, but no hypervisor installation. This driver is recommended for advanced users.
+
+Close Internet connection on the first Minikube run
+This is needed to download packages, dependencies, updates and pull images needed to initialize the Minikube Kubernetes cluster components. Subsequent Minikube runs will require an Internet connection only when new container images need to be pulled from a public container registry or when deployed containerized applications need it for client accessibility. Once a container image has been pulled, it can be reused from the local container runtime image cache without an Internet connection.
+
+In this chapter, we use one of the most robust and stable isolation methods as a driver, the VirtualBox hypervisor, to provision the VM(s) which host the components of the Kubernetes cluster. While no longer the preferred driver due to slower startup times when compared with other methods, it is still one of the most stable drivers for Minikube on Linux and Windows. However, the VirtualBox hypervisor is no longer compatible with macOS on ARM chipset (M1, M2, and M3), therefore Docker will be used instead.
+
+Read more about Minikube from the official Minikube documentation, the official Kubernetes documentation, or GitHub.
